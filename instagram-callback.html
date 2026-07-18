@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="utf-8">
+<title>Instagram/Meta Auth Callback</title>
+<style>
+  body { font-family: system-ui, sans-serif; max-width: 640px; margin: 60px auto; padding: 0 20px; }
+  code { background: #f0f0f0; padding: 12px; display: block; word-break: break-all; border-radius: 6px; font-size: 14px; }
+  button { margin-top: 12px; padding: 8px 16px; cursor: pointer; }
+</style>
+</head>
+<body>
+<h2>Meta authorization code</h2>
+<p>Copy the value below and give it to the app that requested it.</p>
+<code id="code">(reading...)</code>
+<button onclick="copyCode()">Copy</button>
+<p id="status"></p>
+<script>
+  const params = new URLSearchParams(window.location.search);
+  const code = params.get("code");
+  const error = params.get("error_description") || params.get("error");
+  const el = document.getElementById("code");
+  if (code) {
+    el.textContent = code;
+  } else if (error) {
+    el.textContent = "Error: " + error;
+  } else {
+    el.textContent = "No code found in URL.";
+  }
+  function copyCode() {
+    navigator.clipboard.writeText(el.textContent);
+    document.getElementById("status").textContent = "Copied.";
+  }
+</script>
+</body>
+</html>
