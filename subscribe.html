@@ -1,0 +1,232 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Mind-Blowing Facts — Get one every day</title>
+<meta name="description" content="A new mind-blowing fact every day. Watch on YouTube and Instagram, or get the best ones by email.">
+<style>
+  :root {
+    --bg: #0c0a12;
+    --bg-raised: #14111d;
+    --purple: #7c3aed;
+    --purple-bright: #9d5cf5;
+    --purple-dim: #3d2a6b;
+    --text: #f5f3f9;
+    --text-dim: #a89fc2;
+    --border: rgba(245,243,249,0.10);
+  }
+  * { box-sizing: border-box; }
+  html, body { margin: 0; padding: 0; }
+  body {
+    background: var(--bg);
+    color: var(--text);
+    font-family: system-ui, -apple-system, "Segoe UI", sans-serif;
+    line-height: 1.5;
+    overflow-x: hidden;
+  }
+
+  .glow {
+    position: fixed;
+    top: -20%;
+    left: 50%;
+    transform: translateX(-50%);
+    width: 900px;
+    height: 900px;
+    background: radial-gradient(circle, rgba(124,58,237,0.25) 0%, rgba(124,58,237,0) 65%);
+    pointer-events: none;
+    z-index: 0;
+  }
+
+  .wrap {
+    position: relative;
+    z-index: 1;
+    max-width: 640px;
+    margin: 0 auto;
+    padding: 72px 24px 96px;
+  }
+
+  .mark {
+    width: 56px; height: 56px;
+    border-radius: 50%;
+    background: var(--purple);
+    display: flex; align-items: center; justify-content: center;
+    font-weight: 900; font-size: 22px;
+    margin: 0 auto 28px;
+    letter-spacing: -0.02em;
+  }
+
+  h1 {
+    text-align: center;
+    font-size: clamp(34px, 7vw, 52px);
+    font-weight: 800;
+    letter-spacing: -0.03em;
+    line-height: 1.08;
+    margin: 0 0 16px;
+    text-wrap: balance;
+  }
+  h1 span { color: var(--purple-bright); }
+
+  .sub {
+    text-align: center;
+    font-size: 17px;
+    color: var(--text-dim);
+    max-width: 46ch;
+    margin: 0 auto 40px;
+  }
+
+  .platforms {
+    display: flex;
+    gap: 12px;
+    justify-content: center;
+    flex-wrap: wrap;
+    margin-bottom: 56px;
+  }
+  .platform-btn {
+    display: inline-flex;
+    align-items: center;
+    gap: 8px;
+    padding: 12px 22px;
+    border-radius: 999px;
+    border: 1px solid var(--border);
+    background: var(--bg-raised);
+    color: var(--text);
+    text-decoration: none;
+    font-size: 15px;
+    font-weight: 600;
+    transition: border-color 0.15s, transform 0.15s;
+  }
+  .platform-btn:hover { border-color: var(--purple); transform: translateY(-1px); }
+  .platform-btn.primary { background: var(--purple); border-color: var(--purple); }
+  .platform-btn.primary:hover { background: var(--purple-bright); }
+  .platform-btn .dot {
+    width: 6px; height: 6px; border-radius: 50%; background: var(--text-dim);
+  }
+  .platform-btn.coming { opacity: 0.5; cursor: default; }
+  .platform-btn.coming:hover { transform: none; border-color: var(--border); }
+
+  .sample {
+    background: var(--bg-raised);
+    border: 1px solid var(--border);
+    border-radius: 16px;
+    padding: 28px 26px;
+    margin-bottom: 56px;
+  }
+  .sample .eyebrow {
+    font-size: 11px; font-weight: 700; letter-spacing: 0.08em; text-transform: uppercase;
+    color: var(--purple-bright); margin: 0 0 14px;
+  }
+  .fact-row {
+    display: flex; gap: 14px; padding: 12px 0;
+    border-bottom: 1px solid var(--border);
+  }
+  .fact-row:last-child { border-bottom: none; }
+  .fact-row .num {
+    font-size: 13px; font-weight: 700; color: var(--purple-dim);
+    font-variant-numeric: tabular-nums;
+    flex-shrink: 0;
+    padding-top: 1px;
+  }
+  .fact-row p { margin: 0; font-size: 15px; color: var(--text); }
+
+  .signup {
+    text-align: center;
+  }
+  .signup h2 {
+    font-size: 22px; font-weight: 700; margin: 0 0 8px; letter-spacing: -0.01em;
+  }
+  .signup .sub2 {
+    font-size: 14.5px; color: var(--text-dim); margin: 0 0 22px; max-width: 42ch; margin-left: auto; margin-right: auto;
+  }
+
+  form.embeddable-buttondown-form {
+    display: flex;
+    gap: 8px;
+    max-width: 380px;
+    margin: 0 auto;
+  }
+  form.embeddable-buttondown-form input[type="email"] {
+    flex: 1;
+    padding: 13px 16px;
+    border-radius: 10px;
+    border: 1px solid var(--border);
+    background: var(--bg-raised);
+    color: var(--text);
+    font-size: 15px;
+    font-family: inherit;
+  }
+  form.embeddable-buttondown-form input[type="email"]:focus {
+    outline: 2px solid var(--purple-bright);
+    outline-offset: 1px;
+  }
+  form.embeddable-buttondown-form input[type="email"]::placeholder { color: var(--text-dim); }
+  form.embeddable-buttondown-form input[type="submit"] {
+    padding: 13px 20px;
+    border-radius: 10px;
+    border: none;
+    background: var(--purple);
+    color: white;
+    font-size: 15px;
+    font-weight: 700;
+    font-family: inherit;
+    cursor: pointer;
+    transition: background 0.15s;
+  }
+  form.embeddable-buttondown-form input[type="submit"]:hover { background: var(--purple-bright); }
+
+  .fine-print {
+    text-align: center;
+    font-size: 12.5px;
+    color: var(--text-dim);
+    margin-top: 16px;
+    opacity: 0.8;
+  }
+
+  @media (max-width: 480px) {
+    form.embeddable-buttondown-form { flex-direction: column; }
+  }
+</style>
+</head>
+<body>
+<div class="glow"></div>
+<div class="wrap">
+  <div class="mark">?!</div>
+  <h1>One <span>mind-blowing fact</span>,<br>every single day.</h1>
+  <p class="sub">Space, history, psychology, science — bite-sized, always true, never boring. New one drops daily.</p>
+
+  <div class="platforms">
+    <a class="platform-btn primary" href="https://youtube.com/@okemuteejeta" target="_blank" rel="noopener">▶ Watch on YouTube</a>
+    <a class="platform-btn" href="https://instagram.com/ejetao" target="_blank" rel="noopener">Follow on Instagram</a>
+    <span class="platform-btn coming">TikTok — coming soon</span>
+  </div>
+
+  <div class="sample">
+    <p class="eyebrow">Recent facts</p>
+    <div class="fact-row">
+      <span class="num">01</span>
+      <p>The Sahara Desert used to be full of lakes, rivers, and hippos.</p>
+    </div>
+    <div class="fact-row">
+      <span class="num">02</span>
+      <p>Your brain can only maintain about 150 real relationships at once.</p>
+    </div>
+    <div class="fact-row">
+      <span class="num">03</span>
+      <p>Roman concrete can literally heal its own cracks — modern concrete can't.</p>
+    </div>
+  </div>
+
+  <div class="signup">
+    <h2>Don't want to miss one?</h2>
+    <p class="sub2">Get the best fact of the week in your inbox — no spam, unsubscribe anytime.</p>
+    <form action="https://buttondown.email/api/emails/embed-subscribe/REPLACE_WITH_USERNAME" method="post" target="popupwindow"
+          onsubmit="window.open('https://buttondown.email/REPLACE_WITH_USERNAME', 'popupwindow')"
+          class="embeddable-buttondown-form">
+      <input type="email" name="email" id="bd-email" placeholder="you@email.com" required>
+      <input type="submit" value="Subscribe">
+    </form>
+    <p class="fine-print">Powered by Buttondown — one email, once a week.</p>
+  </div>
+</div>
+</body>
+</html>
