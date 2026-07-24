@@ -2,39 +2,50 @@
 <html>
 <head>
 <meta charset="utf-8">
-<title>Privacy Policy — Faceless Facts Poster</title>
+<title>Mind-Blowing Facts Privacy Policy</title>
+<link rel="icon" href="app-icon.png">
 <style>
   body { font-family: system-ui, sans-serif; max-width: 680px; margin: 60px auto; padding: 0 20px; line-height: 1.6; }
-  h1 { font-size: 1.5rem; }
+  .header { display: flex; align-items: center; gap: 14px; margin-bottom: 4px; }
+  .header img { width: 44px; height: 44px; border-radius: 10px; }
+  h1 { font-size: 1.5rem; margin: 0; }
   h2 { font-size: 1.1rem; margin-top: 2rem; }
 </style>
 </head>
 <body>
-<h1>Privacy Policy</h1>
+<div class="header">
+  <img src="app-icon.png" alt="Mind-Blowing Facts icon">
+  <h1>Mind-Blowing Facts Privacy Policy</h1>
+</div>
 <p><em>Last updated: 2026</em></p>
 
-<p>This app ("Faceless Facts Poster") is a personal automation tool built and operated by a single individual
-to publish original short-form educational video content to their own social media accounts
-(YouTube, TikTok, Instagram).</p>
+<p><strong>Mind-Blowing Facts</strong> is a content service that generates short-form educational
+"fact" videos and publishes them to a small number of connected creator accounts on YouTube, TikTok,
+and Instagram, on behalf of the people who own those accounts. Creators choose to connect their
+account to receive this content; the app does not operate on any account without that account's
+owner authorizing it first.</p>
 
 <h2>What this app does</h2>
-<p>The app generates original video content and uploads it directly to the developer's own connected
-accounts on the platforms above, using each platform's official API. It does not operate as a
-public-facing service, and no third party interacts with it.</p>
+<p>For each connected account, the app generates original video content and publishes it using the
+relevant platform's official API (for example, TikTok's Content Posting API), under the authorization
+each account owner grants during sign-in.</p>
 
 <h2>Data collected</h2>
-<p>The app requests only the minimum account-identification scope needed to authenticate and post to
-the developer's own connected account (for example, TikTok's <code>user.info.basic</code> scope,
-used solely to confirm which account is authorized for posting). No personal data belonging to any
-other user is collected, processed, or stored.</p>
+<p>For each connected account, the app stores the account identifier (for example, TikTok's
+<code>open_id</code>) and the OAuth access/refresh tokens issued by that platform, scoped to the
+minimum permissions needed to post content (for example, TikTok's <code>user.info.basic</code> and
+<code>video.publish</code> scopes). No other personal data is collected, and no data from outside
+the connected platforms is accessed.</p>
 
 <h2>Data sharing</h2>
-<p>No data is sold, shared, or disclosed to any third party. Authentication tokens are stored locally
-and used only to make authorized API calls to publish content to the developer's own accounts.</p>
+<p>No data is sold, shared, or disclosed to any third party. Each account's authentication tokens are
+used only to publish content to that same account, and are never used to access or act on any other
+account's data.</p>
 
 <h2>Data retention</h2>
-<p>Authentication tokens are retained only for as long as needed to operate the posting automation and
-can be revoked at any time by disconnecting the app from the relevant platform's account settings.</p>
+<p>Authentication tokens are retained only for as long as an account stays connected to the service,
+and can be revoked at any time by disconnecting the app from that platform's account settings — doing
+so immediately stops any further posting to that account.</p>
 
 <h2>Contact</h2>
 <p>Questions about this policy can be directed to the developer via the contact information on file

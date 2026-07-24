@@ -1,27 +1,92 @@
 <!DOCTYPE html>
-<html>
+<html lang="en">
 <head>
 <meta charset="utf-8">
-<title>Faceless Facts Poster</title>
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Mind-Blowing Facts</title>
+<link rel="icon" href="app-icon.png">
+<meta name="description" content="Mind-Blowing Facts generates and publishes short educational fact videos daily across YouTube, TikTok, and Instagram for a small number of connected creator accounts.">
 <style>
-  body { font-family: system-ui, sans-serif; max-width: 680px; margin: 60px auto; padding: 0 20px; line-height: 1.6; }
-  h1 { font-size: 1.6rem; }
-  a { color: #0969da; }
-  ul { padding-left: 20px; }
+  :root {
+    --bg: #0c0a12;
+    --bg-raised: #14111d;
+    --purple: #7c3aed;
+    --purple-bright: #9d5cf5;
+    --text: #f5f3f9;
+    --text-dim: #a89fc2;
+    --border: rgba(245,243,249,0.10);
+  }
+  * { box-sizing: border-box; }
+  html, body { margin: 0; padding: 0; }
+  body {
+    background: var(--bg);
+    color: var(--text);
+    font-family: system-ui, -apple-system, "Segoe UI", sans-serif;
+    line-height: 1.6;
+  }
+  .wrap { max-width: 680px; margin: 0 auto; padding: 64px 24px 96px; }
+  .header { display: flex; align-items: center; gap: 14px; margin-bottom: 24px; }
+  .header img { width: 48px; height: 48px; border-radius: 12px; }
+  h1 { font-size: 1.9rem; font-weight: 800; margin: 0; letter-spacing: -0.02em; }
+  h2 { font-size: 1.15rem; font-weight: 700; margin-top: 2.2rem; }
+  p { color: var(--text-dim); }
+  p strong { color: var(--text); }
+  a { color: var(--purple-bright); }
+  .card {
+    background: var(--bg-raised);
+    border: 1px solid var(--border);
+    border-radius: 14px;
+    padding: 22px 24px;
+    margin: 28px 0;
+  }
+  .links { display: flex; gap: 14px; flex-wrap: wrap; margin-top: 28px; }
+  .links a {
+    padding: 10px 18px;
+    border-radius: 999px;
+    border: 1px solid var(--border);
+    text-decoration: none;
+    font-size: 14px;
+    font-weight: 600;
+  }
 </style>
 </head>
 <body>
-<h1>Faceless Facts Poster</h1>
-<p>A personal automation tool that generates and publishes original short-form educational
-"mind-blowing facts" video content to the developer's own social media accounts
-(YouTube, TikTok, Instagram).</p>
+<div class="wrap">
+  <div class="header">
+    <img src="app-icon.png" alt="Mind-Blowing Facts icon">
+    <h1>Mind-Blowing Facts</h1>
+  </div>
 
-<p>Each video is an original narration over licensed stock footage, covering a bite-sized
-fact from science, history, or psychology.</p>
+  <p><strong>Mind-Blowing Facts</strong> is a small content service: we generate short,
+  original educational fact videos — science, history, psychology — and publish them daily
+  to a handful of connected creator accounts across YouTube, TikTok, and Instagram.</p>
 
-<ul>
-  <li><a href="terms-of-service.html">Terms of Service</a></li>
-  <li><a href="privacy-policy.html">Privacy Policy</a></li>
-</ul>
+  <h2>How it works</h2>
+  <p>Each video pairs an original narration script with licensed stock footage and captions.
+  A creator connects one or more of their social accounts through that platform's own official
+  sign-in flow, and from then on new videos are published to their account automatically. No
+  account is ever touched without its owner authorizing the connection first, and any creator
+  can disconnect at any time.</p>
+
+  <div class="card">
+    <p style="margin:0"><strong>Who it's for:</strong> right now, a small number of creators
+    who wanted a hands-off way to keep a "daily facts" channel active without producing every
+    video themselves. It's not a public self-serve signup yet — reach out via the contact
+    details on file with each platform's developer portal to inquire about connecting an
+    account.</p>
+  </div>
+
+  <h2>Sample facts</h2>
+  <p>"The Sahara Desert used to be full of lakes, rivers, and hippos." &middot;
+  "Your brain can only maintain about 150 real relationships at once." &middot;
+  "Roman concrete can literally heal its own cracks — modern concrete can't."</p>
+
+  <div class="links">
+    <a href="https://youtube.com/@themindsblowingfacts" target="_blank" rel="noopener">YouTube</a>
+    <a href="https://instagram.com/themindsblowingfacts" target="_blank" rel="noopener">Instagram</a>
+    <a href="terms-of-service.html">Terms of Service</a>
+    <a href="privacy-policy.html">Privacy Policy</a>
+  </div>
+</div>
 </body>
 </html>
