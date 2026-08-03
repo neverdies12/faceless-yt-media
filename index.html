@@ -22,23 +22,48 @@
     background: var(--bg);
     color: var(--text);
     font-family: system-ui, -apple-system, "Segoe UI", sans-serif;
-    line-height: 1.6;
+    line-height: 1.65;
   }
-  .wrap { max-width: 680px; margin: 0 auto; padding: 64px 24px 96px; }
-  .header { display: flex; align-items: center; gap: 14px; margin-bottom: 24px; }
+  .wrap { max-width: 720px; margin: 0 auto; padding: 0 24px 96px; }
+  nav {
+    position: sticky; top: 0; z-index: 10;
+    background: rgba(12,10,18,0.92);
+    backdrop-filter: blur(8px);
+    border-bottom: 1px solid var(--border);
+  }
+  nav .nav-inner {
+    max-width: 720px; margin: 0 auto; padding: 16px 24px;
+    display: flex; align-items: center; justify-content: space-between; flex-wrap: wrap; gap: 12px;
+  }
+  nav .brand { display: flex; align-items: center; gap: 10px; font-weight: 800; }
+  nav .brand img { width: 28px; height: 28px; border-radius: 8px; }
+  nav .nav-links { display: flex; gap: 18px; font-size: 14px; }
+  nav .nav-links a { color: var(--text-dim); text-decoration: none; }
+  nav .nav-links a:hover { color: var(--text); }
+  .header { display: flex; align-items: center; gap: 14px; margin: 56px 0 20px; }
   .header img { width: 48px; height: 48px; border-radius: 12px; }
-  h1 { font-size: 1.9rem; font-weight: 800; margin: 0; letter-spacing: -0.02em; }
-  h2 { font-size: 1.15rem; font-weight: 700; margin-top: 2.2rem; }
+  h1 { font-size: 2.1rem; font-weight: 800; margin: 0; letter-spacing: -0.02em; }
+  h2 { font-size: 1.25rem; font-weight: 700; margin-top: 3rem; scroll-margin-top: 80px; }
+  h3 { font-size: 1rem; font-weight: 700; margin: 1.4rem 0 0.4rem; color: var(--text); }
   p { color: var(--text-dim); }
   p strong { color: var(--text); }
   a { color: var(--purple-bright); }
+  ol, ul { color: var(--text-dim); padding-left: 22px; }
+  ol li, ul li { margin-bottom: 10px; }
   .card {
     background: var(--bg-raised);
     border: 1px solid var(--border);
     border-radius: 14px;
     padding: 22px 24px;
-    margin: 28px 0;
+    margin: 20px 0;
   }
+  .fact-list { margin: 0; padding: 0; list-style: none; }
+  .fact-list li {
+    padding: 12px 0; border-bottom: 1px solid var(--border); font-size: 15px; color: var(--text);
+  }
+  .fact-list li:last-child { border-bottom: none; }
+  .faq-item { margin-bottom: 22px; }
+  .faq-item h3 { margin-top: 0; }
   .links { display: flex; gap: 14px; flex-wrap: wrap; margin-top: 28px; }
   .links a {
     padding: 10px 18px;
@@ -48,38 +73,111 @@
     font-size: 14px;
     font-weight: 600;
   }
+  footer {
+    margin-top: 64px; padding-top: 24px; border-top: 1px solid var(--border);
+    font-size: 13px; color: var(--text-dim);
+  }
+  footer a { color: var(--text-dim); }
 </style>
 </head>
 <body>
+<nav>
+  <div class="nav-inner">
+    <div class="brand"><img src="app-icon.png" alt="Mind-Blowing Facts icon"> Mind-Blowing Facts</div>
+    <div class="nav-links">
+      <a href="#how-it-works">How it works</a>
+      <a href="#samples">Sample facts</a>
+      <a href="#faq">FAQ</a>
+      <a href="#contact">Contact</a>
+    </div>
+  </div>
+</nav>
 <div class="wrap">
   <div class="header">
     <img src="app-icon.png" alt="Mind-Blowing Facts icon">
     <h1>Mind-Blowing Facts</h1>
   </div>
 
-  <p><strong>Mind-Blowing Facts</strong> is a small content service: we generate short,
-  original educational fact videos — science, history, psychology — and publish them daily
-  to a handful of connected creator accounts across YouTube, TikTok, and Instagram.</p>
+  <p><strong>Mind-Blowing Facts</strong> is a content service that produces short, original
+  educational fact videos — science, history, and psychology, always accurate, never
+  sensationalized — and publishes them daily to a small number of connected creator accounts
+  across YouTube, TikTok, and Instagram on the account owner's behalf.</p>
 
-  <h2>How it works</h2>
-  <p>Each video pairs an original narration script with licensed stock footage and captions.
-  A creator connects one or more of their social accounts through that platform's own official
-  sign-in flow, and from then on new videos are published to their account automatically. No
-  account is ever touched without its owner authorizing the connection first, and any creator
-  can disconnect at any time.</p>
+  <h2 id="how-it-works">How it works</h2>
+  <p>Every video follows the same production process, end to end:</p>
+  <ol>
+    <li><strong>Writing.</strong> Each script is written specifically for that video — never
+    copied or paraphrased from another creator's content — and fact-checked against the
+    original claim before it goes into production.</li>
+    <li><strong>Production.</strong> A narrated voiceover is paired with licensed stock footage
+    and burned-in captions to produce a finished vertical video, ready for YouTube Shorts,
+    TikTok, and Instagram Reels.</li>
+    <li><strong>Connecting an account.</strong> A creator connects one or more of their social
+    accounts through that platform's own official OAuth sign-in flow. No account is ever
+    accessed without its owner explicitly authorizing the connection first.</li>
+    <li><strong>Publishing.</strong> Once connected, new videos are published to that creator's
+    account automatically going forward. A creator can disconnect at any time, which
+    immediately stops any further publishing to that account.</li>
+  </ol>
 
   <div class="card">
     <p style="margin:0"><strong>Who it's for:</strong> right now, a small number of creators
     who wanted a hands-off way to keep a "daily facts" channel active without producing every
-    video themselves. It's not a public self-serve signup yet — reach out via the contact
-    details on file with each platform's developer portal to inquire about connecting an
-    account.</p>
+    video themselves. It's not a public self-serve signup yet — see the Contact section below
+    to inquire about connecting an account.</p>
   </div>
 
-  <h2>Sample facts</h2>
-  <p>"The Sahara Desert used to be full of lakes, rivers, and hippos." &middot;
-  "Your brain can only maintain about 150 real relationships at once." &middot;
-  "Roman concrete can literally heal its own cracks — modern concrete can't."</p>
+  <h2 id="samples">Sample facts</h2>
+  <p>A few examples of what's actually been published:</p>
+  <ul class="fact-list">
+    <li>"The Sahara Desert used to be full of lakes, rivers, and hippos."</li>
+    <li>"Your brain can only maintain about 150 real relationships at once."</li>
+    <li>"Roman concrete can literally heal its own cracks — modern concrete can't."</li>
+    <li>"Mount Everest is still growing taller every single year."</li>
+    <li>"Ancient humans were performing skull surgery seven thousand years ago — and patients
+    survived it."</li>
+  </ul>
+
+  <h2>Our approach to content</h2>
+  <p>Every fact published is checked for accuracy before it's used — the goal is content that's
+  genuinely surprising without ever being misleading. Scripts are original writing, not reused
+  or lightly edited from another source, and stock footage is used under its full commercial
+  license. This matters both for our own credibility and because most platforms' monetization
+  and distribution policies specifically penalize reused or low-effort content — originality
+  isn't optional here, it's how the whole thing works.</p>
+
+  <h2 id="faq">Frequently asked questions</h2>
+  <div class="faq-item">
+    <h3>Is this a bot posting spam?</h3>
+    <p>No. Every video is an original, fact-checked script produced specifically for that post.
+    Nothing is reposted, scraped, or copied from other accounts.</p>
+  </div>
+  <div class="faq-item">
+    <h3>What data do you collect from a connected account?</h3>
+    <p>Only what's needed to publish on that account's behalf — an account identifier and the
+    access token issued by that platform's own OAuth flow. See our
+    <a href="privacy-policy.html">Privacy Policy</a> for full detail.</p>
+  </div>
+  <div class="faq-item">
+    <h3>Can I disconnect my account?</h3>
+    <p>Yes, at any time, either from your own account's connected-apps settings on that platform,
+    or by asking us directly. Disconnecting stops all further publishing to that account
+    immediately.</p>
+  </div>
+  <div class="faq-item">
+    <h3>Is the content the same across every connected account?</h3>
+    <p>Currently yes — the same daily fact video is published to each connected creator's
+    account. This may change as the service grows.</p>
+  </div>
+  <div class="faq-item">
+    <h3>How do I get my account connected?</h3>
+    <p>This isn't a public self-serve product yet. Reach out using the contact details below.</p>
+  </div>
+
+  <h2 id="contact">Contact</h2>
+  <p>Questions about this service, a connected account, or these policies can be directed to the
+  developer via the contact information on file with each platform's developer portal (Meta,
+  TikTok, and Google).</p>
 
   <div class="links">
     <a href="https://youtube.com/@themindsblowingfacts" target="_blank" rel="noopener">YouTube</a>
@@ -87,6 +185,11 @@
     <a href="terms-of-service.html">Terms of Service</a>
     <a href="privacy-policy.html">Privacy Policy</a>
   </div>
+
+  <footer>
+    &copy; 2026 Mind-Blowing Facts. This is an independently operated content service, not
+    affiliated with YouTube, TikTok, Instagram, or their parent companies.
+  </footer>
 </div>
 </body>
 </html>
