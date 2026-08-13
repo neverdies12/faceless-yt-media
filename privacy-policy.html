@@ -1,0 +1,124 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Mind-Blowing Facts Privacy Policy</title>
+<link rel="icon" href="app-icon.png">
+<style>
+  body { font-family: system-ui, sans-serif; max-width: 720px; margin: 60px auto; padding: 0 20px; line-height: 1.65; color: #1a1a1a; }
+  .header { display: flex; align-items: center; gap: 14px; margin-bottom: 4px; }
+  .header img { width: 44px; height: 44px; border-radius: 10px; }
+  h1 { font-size: 1.6rem; margin: 0; }
+  h2 { font-size: 1.15rem; margin-top: 2.2rem; }
+  h3 { font-size: 1rem; margin-top: 1.4rem; }
+  table { border-collapse: collapse; width: 100%; margin: 12px 0; font-size: 0.92rem; }
+  th, td { border: 1px solid #ddd; padding: 8px 10px; text-align: left; vertical-align: top; }
+  th { background: #f5f5f5; }
+  code { background: #f0f0f0; padding: 1px 5px; border-radius: 4px; font-size: 0.9em; }
+  a { color: #6d28d9; }
+</style>
+</head>
+<body>
+<div class="header">
+  <img src="app-icon.png" alt="Mind-Blowing Facts icon">
+  <h1>Mind-Blowing Facts — Privacy Policy</h1>
+</div>
+<p><em>Last updated: August 5, 2026</em></p>
+
+<h2>1. Who we are</h2>
+<p><strong>Mind-Blowing Facts</strong> ("the Service," "we," "us") is an independently operated content
+service, developed and operated by an individual developer. The Service produces short-form,
+original educational fact videos (science, history, and psychology topics) and publishes them, on
+behalf of a small number of consenting creator accounts, to YouTube, TikTok, and Instagram. This
+policy explains what data the Service collects when a creator connects their account, how that data
+is used, and how it can be removed. You can reach the developer using the contact details in
+Section 9.</p>
+
+<h2>2. Scope of this policy</h2>
+<p>This policy applies to the data the Service collects and processes for the small number of
+creator accounts that have explicitly connected to it through each platform's own OAuth
+authorization flow. It does not apply to the platforms themselves (YouTube, TikTok, Instagram) —
+each of those has its own privacy policy governing your relationship with them directly. It also
+does not apply to end viewers who simply watch the published videos; the Service does not collect
+any personal data from viewers.</p>
+
+<h2>3. Data we collect and why (TikTok integration)</h2>
+<p>When a creator connects their TikTok account, the Service uses TikTok's official OAuth 2.0 login
+flow. We never see or store the creator's TikTok password. After the creator grants consent on
+TikTok's own consent screen, TikTok issues us the following, which we store:</p>
+<table>
+<tr><th>Data</th><th>Source</th><th>Why we store it</th></tr>
+<tr><td>TikTok <code>open_id</code></td><td>TikTok OAuth response</td><td>Identifies which connected account to publish to; TikTok does not disclose the account's real username or profile to us through this identifier.</td></tr>
+<tr><td>OAuth access token &amp; refresh token</td><td>TikTok OAuth response</td><td>Used solely to call TikTok's Content Posting API on that account's behalf. The access token is short-lived and is refreshed automatically using the refresh token.</td></tr>
+<tr><td>Granted scope list</td><td>TikTok OAuth response</td><td>Recorded so we never attempt an action the account owner didn't authorize.</td></tr>
+<tr><td>A short human-readable label</td><td>Set by the developer at onboarding time</td><td>Internal reference only (e.g. "creator 1"); never shown publicly.</td></tr>
+</table>
+<p>The scopes we request and actually use are <code>user.info.basic</code> (to confirm the connected
+account during onboarding) and <code>video.publish</code> (to publish a finished video to that
+account via TikTok's Content Posting API, using the <code>PULL_FROM_URL</code> source type). We do
+not request or use any other TikTok scope or product.</p>
+
+<h3>What we do not collect from TikTok</h3>
+<p>We do not access, store, or process the creator's TikTok followers, direct messages, comments,
+analytics beyond basic post-publish status, browsing activity, or any content other than the videos
+our own Service publishes. We do not use TikTok data for advertising, profiling, or any purpose
+other than publishing the creator's own auto-generated content to their own account.</p>
+
+<h2>4. Data we collect and why (YouTube and Instagram integrations)</h2>
+<p>The same minimum-necessary principle applies to YouTube and Instagram: for each connected
+account we store only the OAuth token issued by that platform (via Google's OAuth 2.0 flow for
+YouTube, and Meta's Graph API OAuth flow for Instagram) and the account identifier needed to
+publish. YouTube tokens are scoped to video upload/management only
+(<code>youtube.force-ssl</code>) plus read-only analytics
+(<code>yt-analytics.readonly</code>) used to report performance back to the account owner.
+Instagram publishing uses Meta's Content Publishing API under the connected account's own
+authorization.</p>
+
+<h2>5. How video files are hosted in transit</h2>
+<p>Because TikTok's and Instagram's publishing APIs fetch video by URL rather than accepting a
+direct upload from our server, a finished video is briefly placed at a private, time-limited URL
+(hosted on Backblaze B2 for Instagram, and on a pre-verified static site for TikTok) solely so that
+platform's servers can retrieve it during publishing. These URLs are not indexed, not linked from
+any public page, and are removed or expire shortly after the post is confirmed published. No
+creator's personal data is contained in the video file hosting step — only the finished video
+content itself.</p>
+
+<h2>6. Data sharing and disclosure</h2>
+<p>We do not sell, rent, or share any creator's data with third parties. Access tokens are used
+exclusively to publish content to the same account that issued them, and are never used to read,
+modify, or act on any other account. We do not share data with advertisers, data brokers, or
+analytics companies. The only "third parties" involved in operating the Service are the
+infrastructure providers strictly necessary to run it (cloud hosting and object storage), each of
+which processes data only as instructed by us and does not use it for their own purposes.</p>
+
+<h2>7. Data retention and deletion</h2>
+<p>Tokens are retained only for as long as an account remains connected to the Service. A creator
+can revoke access at any time in two ways: (a) disconnecting the app directly from that platform's
+own connected-apps/authorized-apps settings, which immediately invalidates the token on the
+platform's side, or (b) requesting removal directly from the developer via the contact details
+below. Either method stops all future publishing to that account immediately and results in the
+stored token and account record being deleted from our systems within 7 days. Video files
+themselves are removed from temporary hosting automatically, typically within 24 hours of a
+successful publish.</p>
+
+<h2>8. Children's privacy</h2>
+<p>The Service is not directed at children, does not knowingly collect data from anyone under 13,
+and account connection requires completing that platform's own adult developer/creator
+authorization flow. All published videos are marked as not made for kids on every platform that
+supports that designation.</p>
+
+<h2>9. Your rights and contact</h2>
+<p>You may request access to, correction of, or deletion of any data we hold about your connected
+account at any time. Because this is a small, individually operated service, requests are handled
+directly by the developer. Contact the developer using the email address on file with the relevant
+platform's developer portal (TikTok, Google, or Meta), or via the contact channel listed for this
+app in that portal. We aim to respond to any data request within 7 days.</p>
+
+<h2>10. Changes to this policy</h2>
+<p>This policy may be updated as the Service changes. Material changes will be reflected by updating
+the "Last updated" date at the top of this page. Continued connection of an account after a change
+constitutes acceptance of the updated policy; a creator who disagrees with a change can disconnect
+at any time as described in Section 7.</p>
+</body>
+</html>
